@@ -1,4 +1,5 @@
-﻿using FakeItEasy;
+﻿using AutoFixture;
+using FakeItEasy;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace UnitTests.Tests.Mocking
     public class HouseKeeperServiceTests
     {
         private HouseKeeperService _service;
-        private new Fake<IStatementGenerator> _statementGenerator;
-        private new Fake<IEmailSender> _emailSender;
-        private new Fake<IXtraMessageBox> _messageBox;
+        private Fake<IStatementGenerator> _statementGenerator;
+        private Fake<IEmailSender> _emailSender;
+        private Fake<IXtraMessageBox> _messageBox;
         private readonly DateTime _statementDate = new(2017, 1, 1);
         private Housekeeper _houseKeeper;
         private string _statementFileName;
@@ -21,7 +22,8 @@ namespace UnitTests.Tests.Mocking
         [SetUp]
         public void SetUp()
         {
-            _houseKeeper = new Housekeeper { Email = "a", FullName = "b", Oid = 1, StatementEmailBody = "c" };
+            var fixture = new Fixture();
+            _houseKeeper = fixture.Create<Housekeeper>();
 
             var unitOfWork = new Fake<IUnitOfWork>();
             unitOfWork.CallsTo(uow => uow.Query<Housekeeper>()).Returns(new List<Housekeeper>
