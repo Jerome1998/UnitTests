@@ -1,4 +1,6 @@
-﻿namespace UnitTests.Fundamentals
+﻿using System;
+
+namespace UnitTests.Fundamentals
 {
     public class ErrorLogger
     {
@@ -8,7 +10,7 @@
         
         public void Log(string error)
         {
-            if (String.IsNullOrWhiteSpace(error))
+            if (string.IsNullOrWhiteSpace(error))
                 throw new ArgumentNullException();
                 
             LastError = error; 

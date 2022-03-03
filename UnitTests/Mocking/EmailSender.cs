@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.IO;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 
@@ -40,6 +41,5 @@ namespace UnitTests.Mocking
 
             File.Delete(filename);
         }
-
     }
 }

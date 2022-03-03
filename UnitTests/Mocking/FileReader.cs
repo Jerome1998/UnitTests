@@ -1,4 +1,6 @@
-﻿namespace UnitTests.Mocking
+﻿using System.IO;
+
+namespace UnitTests.Mocking
 {
     public interface IFileReader
     {

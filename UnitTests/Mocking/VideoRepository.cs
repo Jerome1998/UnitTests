@@ -1,4 +1,7 @@
-﻿namespace UnitTests.Mocking
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace UnitTests.Mocking
 {
     public interface IVideoRepository
     {

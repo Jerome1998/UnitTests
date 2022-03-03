@@ -1,4 +1,7 @@
-﻿namespace UnitTests.Fundamentals
+﻿using System;
+using System.Collections.Generic;
+
+namespace UnitTests.Fundamentals
 {
     public class Stack<T>
     {

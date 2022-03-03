@@ -1,4 +1,8 @@
-﻿namespace UnitTests.Mocking
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace UnitTests.Mocking
 {
     public static class BookingHelper
     {

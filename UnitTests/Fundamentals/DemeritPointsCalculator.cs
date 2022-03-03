@@ -1,4 +1,6 @@
-﻿namespace UnitTests.Fundamentals
+﻿using System;
+
+namespace UnitTests.Fundamentals
 {
     public class DemeritPointsCalculator
     {

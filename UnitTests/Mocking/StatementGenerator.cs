@@ -1,4 +1,7 @@
-﻿namespace UnitTests.Mocking
+﻿using System;
+using System.IO;
+
+namespace UnitTests.Mocking
 {
     public interface IStatementGenerator
     {
