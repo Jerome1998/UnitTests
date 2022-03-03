@@ -27,6 +27,5 @@ namespace UnitTests.Mocking
 
             return filename;
         }
-
     }
 }
