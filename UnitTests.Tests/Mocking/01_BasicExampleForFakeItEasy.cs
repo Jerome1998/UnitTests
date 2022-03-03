@@ -8,6 +8,32 @@ namespace UnitTests.Tests.Mocking
     public class EmployeeControllerTests
     {
         [Test]
+        public void GetEmployee_WhenCalled_ReturnsEmployeeFromDb1()
+        {
+            var storage = A.Fake<IEmployeeStorage>();
+            A.CallTo(() => storage.GetEmployee(A<int>.Ignored)).Returns(new Employee());
+            var controller = new EmployeeController(storage);
+
+            var result = controller.GetEmployee(42);
+
+            Assert.That(result, Is.TypeOf<OkResult>());
+            Assert.That((result as OkResult).Data, Is.TypeOf<Employee>());
+        }
+
+        [Test]
+        public void GetEmployee_WhenCalled_ReturnsEmployeeFromDb2()
+        {
+            var storage = new Fake<IEmployeeStorage>();
+            storage.CallsTo(storage => storage.GetEmployee(A<int>.Ignored)).Returns(new Employee());
+            var controller = new EmployeeController(storage.FakedObject);
+
+            var result = controller.GetEmployee(42);
+
+            Assert.That(result, Is.TypeOf<OkResult>());
+            Assert.That((result as OkResult).Data, Is.TypeOf<Employee>());
+        }
+
+        [Test]
         public void DeleteEmployee_WhenCalled_DeleteTheEmployeeFromDb1()
         {
             var storage = A.Fake<IEmployeeStorage>();

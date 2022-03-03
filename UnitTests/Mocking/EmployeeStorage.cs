@@ -3,6 +3,7 @@
     public interface IEmployeeStorage
     {
         void DeleteEmployee(int id);
+        Employee GetEmployee(int id);
     }
 
     public class EmployeeStorage : IEmployeeStorage
@@ -20,6 +21,11 @@
             if (employee == null) return;
             _db.Employees.Remove(employee);
             _db.SaveChanges();
+        }
+
+        public Employee GetEmployee(int id)
+        {
+            return _db.Employees.Find(id);
         }
     }
 }
